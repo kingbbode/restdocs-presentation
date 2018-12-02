@@ -9,6 +9,8 @@ import java.util.Optional;
 public class AlgumonSaleItem {
 
     public static final String NOT_EXIST_PRICE = "정보 없음";
+    private String postId;
+
     private String title;
 
     private String link;
@@ -16,7 +18,8 @@ public class AlgumonSaleItem {
     private String price;
 
     @Builder
-    public AlgumonSaleItem(String title, String link, String price) {
+    public AlgumonSaleItem(String postId, String title, String link, String price) {
+        this.postId = postId;
         this.title = title;
         this.link = link;
         this.price = Optional.ofNullable(price).orElse(NOT_EXIST_PRICE);
@@ -25,7 +28,8 @@ public class AlgumonSaleItem {
     @Override
     public String toString() {
         return "AlgumonSaleItem{" +
-                "title='" + title + '\'' +
+                "postId='" + postId + '\'' +
+                ", title='" + title + '\'' +
                 ", link='" + link + '\'' +
                 ", price='" + price + '\'' +
                 '}';

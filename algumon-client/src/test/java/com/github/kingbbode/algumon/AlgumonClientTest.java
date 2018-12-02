@@ -21,6 +21,7 @@ public class AlgumonClientTest {
         //then
         assertFalse(CollectionUtils.isEmpty(results));
         results.forEach(result -> {
+            assertFalse(StringUtils.isEmpty(result.getPostId()));
             assertFalse(StringUtils.isEmpty(result.getTitle()));
             assertFalse(StringUtils.isEmpty(result.getLink()));
             assertFalse(StringUtils.isEmpty(result.getPrice()));
