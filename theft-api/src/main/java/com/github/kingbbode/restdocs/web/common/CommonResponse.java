@@ -16,11 +16,11 @@ public class CommonResponse<T> {
     }
 
     public static <T> CommonResponse<T> ok(T data) {
-        return new CommonResponse<>(Status.SUCCESS, data, null);
+        return new CommonResponse<>(Status.SUCCESS, data, "성공");
     }
 
-    public static <T> CommonResponse<T> fail(String message) {
-        return new CommonResponse<>(Status.FAIL, null, message);
+    public static <T> CommonResponse<T> fail(String message, T data) {
+        return new CommonResponse<>(Status.FAIL, data, message);
     }
 
     public static <T> CommonResponse<T> error(String message) {

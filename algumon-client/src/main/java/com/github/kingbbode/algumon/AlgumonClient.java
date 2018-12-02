@@ -7,7 +7,6 @@ import org.jsoup.nodes.Element;
 import org.jsoup.nodes.Node;
 import org.springframework.util.CollectionUtils;
 
-import java.io.IOException;
 import java.util.Collections;
 import java.util.List;
 import java.util.Optional;

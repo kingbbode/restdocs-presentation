@@ -9,8 +9,6 @@ buildscript {
     }
 }
 
-apply plugin: 'org.asciidoctor.convert'
-
 group = 'com.github.kingbbode'
 version = '0.0.1-SNAPSHOT'
 
@@ -30,6 +28,7 @@ subprojects {
     dependencies {
         compileOnly('org.projectlombok:lombok')
         annotationProcessor("org.projectlombok:lombok")
+        testImplementation('org.projectlombok:lombok')
         testImplementation('org.springframework.boot:spring-boot-starter-test')
 
     }
@@ -58,6 +57,19 @@ project(':algumon-client') {
 }
 
 project(':theft-api') {
+
+    apply plugin: 'org.asciidoctor.convert'
+
+    ext {
+        snippetsDir = file('build/generated-snippets')
+    }
+
+    asciidoctor {
+        attributes 'snippets': snippetsDir
+        inputs.dir snippetsDir
+        dependsOn test
+    }
+
     dependencies {
         compile project(':theft-domain')
         compile project(':algumon-client')

@@ -1,0 +1,64 @@
+= Spring REST Docs Sample API
+kingbbode;
+:doctype: book
+:icons: font
+:source-highlighter: highlightjs
+:toc: left
+:toclevels: 3
+:sectlinks:
+
+[[introduction]]
+== 소개
+
+도둑 시스템 API
+
+[[common]]
+== 공통 사항
+
+=== 환경
+
+|===
+| 환경 | domain
+
+| 개발서버
+| `https://dev.kingbbode.com`
+
+| 운영서버
+| `https://kingbbode.com`
+|===
+
+=== 응답 상태
+
+|===
+| 상태명 | 설명
+
+| `SUCCESS`
+| 정상 처리
+
+| `FAIL`
+| 정상 응답이지만, 비지니스 요청 실패. 실패 상태는 협의 후 추가 가능( ex. FAIL_SHOP_CLOSE)
+
+| `ERROR`
+| 4xx , 5xx 에러
+
+|===
+
+=== 공통 응답
+
+include::{snippets}/success/response-fields.adoc[]
+
+==== SUCCESS(정상 처리)
+
+include::{snippets}/success/response-body.adoc[]
+
+==== FAIL(실패)
+
+include::{snippets}/fail/response-body.adoc[]
+
+==== ERROR(4xx)
+
+include::{snippets}/bad-request/response-body.adoc[]
+
+==== ERROR(5xx)
+
+include::{snippets}/internal-server-error/response-body.adoc[]
