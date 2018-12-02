@@ -32,7 +32,7 @@ public class AlgumonClient {
                     .map(this::createDto)
                     .collect(Collectors.toList());
 
-        } catch (IOException e) {
+        } catch (Exception e) {
             log.error("[ALGUMON][PARSE][ERROR] {}, {}", ALGUMON_URL, e.getMessage());
             log.debug("[ALGUMON][PARSE][ERROR] {}", e);
             return Collections.emptyList();

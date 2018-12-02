@@ -1,5 +1,6 @@
-package com.github.kingbbode.restdocs.web.service;
+package com.github.kingbbode.restdocs.web.sale.service;
 
+import com.github.kingbbode.algumon.AlgumonClient;
 import com.github.kingbbode.algumon.AlgumonSaleItem;
 import com.github.kingbbode.restdocs.domain.sale.SaleItem;
 import com.github.kingbbode.restdocs.domain.sale.SaleItemRepository;
@@ -15,9 +16,16 @@ import java.util.List;
 @Service
 @RequiredArgsConstructor
 @Transactional
-public class AlgumonService {
+public class SaleService {
 
+    private final AlgumonClient algumonClient;
     private final SaleItemRepository saleItemRepository;
+
+    public int crowl() {
+        List<AlgumonSaleItem> parse = algumonClient.parse();
+        save(parse);
+        return saleItemRepository.findAll().size();
+    }
 
     void save(List<AlgumonSaleItem> items) {
         items.forEach(this::save);

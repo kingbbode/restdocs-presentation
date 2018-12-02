@@ -1,4 +1,4 @@
-package com.github.kingbbode.restdocs.web.service;
+package com.github.kingbbode.restdocs.web.sale.service;
 
 import com.github.kingbbode.algumon.AlgumonSaleItem;
 import com.github.kingbbode.restdocs.domain.sale.SaleItemRepository;
@@ -19,7 +19,7 @@ import static org.junit.Assert.assertEquals;
 public class AlgumonServiceTest {
 
     @Autowired
-    private AlgumonService algumonService;
+    private SaleService algumonService;
 
     @Autowired
     private SaleItemRepository saleItemRepository;
