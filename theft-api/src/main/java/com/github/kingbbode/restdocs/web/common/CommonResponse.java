@@ -1,6 +1,5 @@
 package com.github.kingbbode.restdocs.web.common;
 
-import lombok.Builder;
 import lombok.Getter;
 
 @Getter
@@ -22,5 +21,9 @@ public class CommonResponse<T> {
 
     public static <T> CommonResponse<T> fail(String message) {
         return new CommonResponse<>(Status.FAIL, null, message);
+    }
+
+    public static <T> CommonResponse<T> error(String message) {
+        return new CommonResponse<>(Status.ERROR, null, message);
     }
 }
