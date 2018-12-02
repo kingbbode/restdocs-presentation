@@ -1,1 +1,5 @@
 rootProject.name = 'restdcos-presentation'
+include 'theft-api'
+include 'theft-domain'
+include 'algumon-client'
+

@@ -1,4 +1,4 @@
-package com.github.kingbbode.restdcospresentation;
+package com.github.kingbbode.restdocs;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

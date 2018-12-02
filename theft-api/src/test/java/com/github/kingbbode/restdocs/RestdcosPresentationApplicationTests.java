@@ -1,4 +1,4 @@
-package com.github.kingbbode.restdcospresentation;
+package com.github.kingbbode.restdocs;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;
