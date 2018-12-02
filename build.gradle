@@ -29,6 +29,7 @@ subprojects {
 
     dependencies {
         compileOnly('org.projectlombok:lombok')
+        annotationProcessor("org.projectlombok:lombok")
         testImplementation('org.springframework.boot:spring-boot-starter-test')
 
     }
@@ -40,7 +41,7 @@ project(':theft-domain') {
     jar { enabled = true }
 
     dependencies {
-        implementation('org.springframework.boot:spring-boot-starter-data-jpa')
+        compile('org.springframework.boot:spring-boot-starter-data-jpa')
         runtimeOnly('com.h2database:h2')
     }
 }
@@ -58,9 +59,9 @@ project(':algumon-client') {
 
 project(':theft-api') {
     dependencies {
-        implementation project(':theft-domain')
-        implementation project(':algumon-client')
-        implementation('org.springframework.boot:spring-boot-starter-web')
+        compile project(':theft-domain')
+        compile project(':algumon-client')
+        compile('org.springframework.boot:spring-boot-starter-web')
         testImplementation('org.springframework.restdocs:spring-restdocs-mockmvc')
         testImplementation('org.springframework.restdocs:spring-restdocs-restassured')
         testImplementation('io.rest-assured:spring-mock-mvc')
