@@ -17,15 +17,18 @@ import java.util.stream.Collectors;
 public class AlgumonClient {
 
     private static final String ALGUMON_URL = "https://algumon.com/more/0?types=ended";
+    private static final String POST_LI_CLASS = "post-li";
     private static final String PRODUCT_BODY_CLASS = ".product-body";
-    public static final String TITLE_ATTR_KEY = "data-label";
-    public static final String LINK_ATTR_KEY = "href";
+    private static final String TITLE_ATTR_KEY = "data-label";
+    private static final String LINK_ATTR_KEY = "href";
 
     public List<AlgumonSaleItem> parse() {
         try {
             Document document = Jsoup.connect(ALGUMON_URL).get();
-            return document.body().select(PRODUCT_BODY_CLASS)
+            return document.body()
+                    .select("li")
                     .stream()
+                    .filter(li -> li.hasClass(POST_LI_CLASS))
                     .map(this::createDto)
                     .collect(Collectors.toList());
 
@@ -37,10 +40,16 @@ public class AlgumonClient {
     }
 
     private AlgumonSaleItem createDto(Element product) {
+
         AlgumonSaleItem.AlgumonSaleItemBuilder builder = AlgumonSaleItem.builder();
 
-        fillItemInfo(product, builder);
-        fillPrice(product, builder);
+        builder.postId(product.attr("id"));
+
+        product.select(PRODUCT_BODY_CLASS)
+                .forEach(element -> {
+                    fillItemInfo(element, builder);
+                    fillPrice(element, builder);
+                });
 
         return builder.build();
     }
