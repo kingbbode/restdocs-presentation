@@ -1,5 +1,6 @@
 package com.github.kingbbode.algumon;
 
+import org.junit.Ignore;
 import org.junit.Test;
 import org.springframework.util.CollectionUtils;
 import org.springframework.util.StringUtils;
@@ -11,6 +12,7 @@ import static org.junit.Assert.assertFalse;
 public class AlgumonClientTest {
 
     @Test
+    @Ignore
     public void 파싱_테스트() {
         //given
         AlgumonClient algumonClient = new AlgumonClient();
