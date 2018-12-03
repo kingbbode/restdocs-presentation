@@ -16,7 +16,7 @@ public class TestController {
 
     @GetMapping("/fail")
     public CommonResponse<Data> fail() {
-        throw new FailedException("ex) 주문하신 업소가 마감했습니다. 다른 업소를 이용해주세요.", Data.builder().data("failed data.").build());
+        throw new FailedException("ex) 알구몬이 장애난 듯 합니다.", Data.builder().data("failed data.").build());
     }
 
     @GetMapping("/bad-request")

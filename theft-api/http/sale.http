@@ -1,1 +1,3 @@
-POST localhost:8080/sale
+POST localhost:8080/sales
+
+###
