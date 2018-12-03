@@ -117,6 +117,4 @@ public class SaleControllerTest extends RestdocsPresentaionTestContext {
 
         assertEquals(1, saleItemRepository.findAll().size());
     }
-
-
 }
