@@ -4,6 +4,7 @@ import com.github.kingbbode.algumon.AlgumonSaleItem;
 import com.github.kingbbode.restdocs.RestdocsPresentaionTestContext;
 import com.github.kingbbode.restdocs.domain.sale.SaleItem;
 import com.github.kingbbode.restdocs.domain.sale.SaleItemRepository;
+import com.github.kingbbode.restdocs.domain.sale.Site;
 import io.restassured.module.mockmvc.response.MockMvcResponse;
 import org.junit.After;
 import org.junit.Test;
@@ -14,7 +15,7 @@ import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.util.Arrays;
 
-import static com.github.kingbbode.restdocs.RestDocsUtils.emptyFormat;
+import static com.github.kingbbode.restdocs.RestDocsUtils.*;
 import static org.junit.Assert.assertEquals;
 import static org.mockito.Mockito.when;
 import static org.springframework.restdocs.mockmvc.MockMvcRestDocumentation.document;
@@ -60,6 +61,8 @@ public class SaleControllerTest extends RestdocsPresentaionTestContext {
         response.then()
                 .apply(
                         document("get-sales",
+                                preprocessTheftRequest(),
+                                preprocessTheftResponse(),
                                 requestParameters(
                                         parameterWithName("date").description("날짜")
                                 ),
@@ -72,7 +75,7 @@ public class SaleControllerTest extends RestdocsPresentaionTestContext {
                                         fieldWithPath("data.algumon[].modifiedDate").type(JsonFieldType.STRING).attributes(emptyFormat()).description(""),
                                         fieldWithPath("data.algumon[].id").type(JsonFieldType.NUMBER).attributes(emptyFormat()).description(""),
                                         fieldWithPath("data.algumon[].title").type(JsonFieldType.STRING).attributes(emptyFormat()).description(""),
-                                        fieldWithPath("data.algumon[].site").type(JsonFieldType.STRING).attributes(emptyFormat()).description(""),
+                                        fieldWithPath("data.algumon[].site").type(JsonFieldType.STRING).attributes(enumFormat(Site.class)).description(""),
                                         fieldWithPath("data.algumon[].postId").type(JsonFieldType.STRING).attributes(emptyFormat()).description(""),
                                         fieldWithPath("data.algumon[].link").type(JsonFieldType.STRING).attributes(emptyFormat()).description(""),
                                         fieldWithPath("data.algumon[].price").type(JsonFieldType.STRING).attributes(emptyFormat()).description("")
