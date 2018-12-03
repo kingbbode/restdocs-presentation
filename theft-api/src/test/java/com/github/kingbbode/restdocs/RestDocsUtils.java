@@ -2,6 +2,7 @@ package com.github.kingbbode.restdocs;
 
 import org.springframework.restdocs.operation.preprocess.OperationRequestPreprocessor;
 import org.springframework.restdocs.operation.preprocess.OperationResponsePreprocessor;
+import org.springframework.restdocs.operation.preprocess.Preprocessors;
 
 import java.util.Arrays;
 import java.util.Collection;
@@ -13,14 +14,14 @@ import static org.springframework.restdocs.snippet.Attributes.Attribute;
 import static org.springframework.restdocs.snippet.Attributes.key;
 
 public class RestDocsUtils {
-    public static OperationRequestPreprocessor preprocessOrderRequest() {
-        return preprocessRequest(
+    public static OperationRequestPreprocessor preprocessTheftRequest() {
+        return Preprocessors.preprocessRequest(
                 modifyUris().scheme("https").host("kingbbode.com").removePort(),
                 prettyPrint()
         );
     }
 
-    public static OperationResponsePreprocessor preprocessOrderResponse() {
+    public static OperationResponsePreprocessor preprocessTheftResponse() {
         return preprocessResponse(prettyPrint());
     }
 

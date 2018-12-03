@@ -41,8 +41,8 @@ public class CommonControllerTest extends RestdocsPresentaionTestContext {
         response.then()
                 .apply(
                         document("success",
-                                preprocessOrderRequest(),
-                                preprocessOrderResponse(),
+                                preprocessTheftRequest(),
+                                preprocessTheftResponse(),
                                 responseFields(
                                         fieldWithPath("status").type(JsonFieldType.STRING).attributes(emptyFormat()).description("응답 코드"),
                                         fieldWithPath("message").type(JsonFieldType.STRING).attributes(emptyFormat()).description("응답 메시지"),
@@ -68,8 +68,8 @@ public class CommonControllerTest extends RestdocsPresentaionTestContext {
         response.then()
                 .apply(
                         document("fail",
-                                preprocessOrderRequest(),
-                                preprocessOrderResponse(),
+                                preprocessTheftRequest(),
+                                preprocessTheftResponse(),
                                 responseFields(
                                         fieldWithPath("status").type(JsonFieldType.STRING).attributes(emptyFormat()).description("협의 응답 코드"),
                                         fieldWithPath("message").type(JsonFieldType.STRING).attributes(emptyFormat()).description("협의 응답 메시지"),
@@ -95,8 +95,8 @@ public class CommonControllerTest extends RestdocsPresentaionTestContext {
         response.then()
                 .apply(
                         document("bad-request",
-                                preprocessOrderRequest(),
-                                preprocessOrderResponse(),
+                                preprocessTheftRequest(),
+                                preprocessTheftResponse(),
                                 responseFields(
                                         fieldWithPath("status").type(JsonFieldType.STRING).attributes(emptyFormat()).description("응답 코드"),
                                         fieldWithPath("message").type(JsonFieldType.STRING).attributes(emptyFormat()).description("에러 메시지"),
@@ -121,8 +121,8 @@ public class CommonControllerTest extends RestdocsPresentaionTestContext {
         response.then()
                 .apply(
                         document("internal-server-error",
-                                preprocessOrderRequest(),
-                                preprocessOrderResponse(),
+                                preprocessTheftRequest(),
+                                preprocessTheftResponse(),
                                 responseFields(
                                         fieldWithPath("status").type(JsonFieldType.STRING).attributes(emptyFormat()).description("응답 코드"),
                                         fieldWithPath("message").type(JsonFieldType.STRING).attributes(emptyFormat()).description("에러 메시지"),

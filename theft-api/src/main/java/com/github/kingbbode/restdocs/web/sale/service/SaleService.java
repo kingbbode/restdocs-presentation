@@ -4,6 +4,7 @@ import com.github.kingbbode.algumon.AlgumonClient;
 import com.github.kingbbode.algumon.AlgumonSaleItem;
 import com.github.kingbbode.restdocs.domain.sale.SaleItem;
 import com.github.kingbbode.restdocs.domain.sale.SaleItemRepository;
+import com.github.kingbbode.restdocs.domain.sale.Site;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.dao.DataIntegrityViolationException;
@@ -34,6 +35,7 @@ public class SaleService {
     private void save(AlgumonSaleItem item) {
         try {
             saleItemRepository.save(SaleItem.builder()
+                    .site(Site.ALGUMON)
                     .postId(item.getPostId())
                     .title(item.getTitle())
                     .link(item.getLink())
